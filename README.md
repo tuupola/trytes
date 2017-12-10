@@ -24,41 +24,20 @@ $encoded = $trytes->encode(random_bytes(128));
 $decoded = $trytes->decode($encoded);
 ```
 
-Note that if you are encoding to and from integer you need to pass boolean `true` as the second argument for `decode()` method. This is because `decode()` does not know if the original data was an integer or binary data.
-
-``` php
-$integer = $trytes->encode(987654321); /* 14q60P */
-print $trytes->decode("14q60P", true); /* 987654321 */
-```
-
-If you prefer you can also use the implicit `decodeInteger()` method.
-
-``` php
-$integer = $trytes->encode(987654321); /* 14q60P */
-print $trytes->decodeInteger("14q60P"); /* 987654321 */
-```
-
-Also note that encoding a string and an integer will yield different results.
-
-``` php
-$integer = $trytes->encode(987654321); /* 14q60P */
-$string = $trytes->encode("987654321"); /* KHc6iHtXW3iD */
-```
-
 ## Character sets
 
-By default trytes uses IOTA character set. You can also use any custom character set of 27 unique characters.
+By default trytes uses [IOTA](http://iota.org/) character set. Shortcut it provided for [Heptavintimal](http://homepage.divms.uiowa.edu/~jones/ternary/hept.shtml) characters. You can also use any custom character set of 27 unique characters.
 
 ```php
 use Tuupola\Trytes;
 
-print Trytes:IOTA; /* 9ABCDEFGHIJKLMNOPQRSTUVWXYZ */
-print Trytes:HEPTAVINTIMAL; /* 0123456789ABCDEFGHKMNPRTVXZ */
+print Trytes::IOTA; /* 9ABCDEFGHIJKLMNOPQRSTUVWXYZ */
+print Trytes::HEPTAVINTIMAL; /* 0123456789ABCDEFGHKMNPRTVXZ */
 
-$default = new Trytes(["characters" => Trytes:IOTA]);
-$inverted = new Trytes(["characters" => Trytes:HEPTAVINTIMAL]);
-print $default->encode("Hello world!"); /* TODO */
-print $inverted->encode("Hello world!"); /* TODO */
+$default = new Trytes(["characters" => Trytes::IOTA]);
+$inverted = new Trytes(["characters" => Trytes::HEPTAVINTIMAL]);
+print $default->encode("Hello world!"); /* RBTC9D9DCDEAKDCDFD9DSCFA */
+print $inverted->encode("Hello world!"); /* K2N304043451B4346404M361 */
 ```
 
 ## Static Proxy (not implemented)
