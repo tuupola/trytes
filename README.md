@@ -2,7 +2,7 @@
 
 This library implements Trytes encoding. It can decode both integers any any arbitrary data.
 
-[![Latest Version](https://img.shields.io/packagist/v/tuupola/trytet.svg?style=flat-square)](https://packagist.org/packages/tuupola/trytes)
+[![Latest Version](https://img.shields.io/packagist/v/tuupola/trytes.svg?style=flat-square)](https://packagist.org/packages/tuupola/trytes)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/tuupola/trytes/master.svg?style=flat-square)](https://travis-ci.org/tuupola/trytes)
 [![Coverage](http://img.shields.io/codecov/c/github/tuupola/trytes.svg?style=flat-square)](https://codecov.io/github/tuupola/trytes)
@@ -26,7 +26,7 @@ $decoded = $trytes->decode($encoded);
 
 ## Character sets
 
-By default trytes uses [IOTA](http://iota.org/) character set. Shortcut it provided for [Heptavintimal](http://homepage.divms.uiowa.edu/~jones/ternary/hept.shtml) characters. You can also use any custom character set of 27 unique characters.
+By default this library uses the [IOTA](http://iota.org/) style character set. Shortcut is provided also for [Heptavintimal](http://homepage.divms.uiowa.edu/~jones/ternary/hept.shtml) characters. If required you can use any custom character set of 27 unique characters.
 
 ```php
 use Tuupola\Trytes;
@@ -35,9 +35,9 @@ print Trytes::IOTA; /* 9ABCDEFGHIJKLMNOPQRSTUVWXYZ */
 print Trytes::HEPTAVINTIMAL; /* 0123456789ABCDEFGHKMNPRTVXZ */
 
 $default = new Trytes(["characters" => Trytes::IOTA]);
-$inverted = new Trytes(["characters" => Trytes::HEPTAVINTIMAL]);
+$heptavintimal = new Trytes(["characters" => Trytes::HEPTAVINTIMAL]);
 print $default->encode("Hello world!"); /* RBTC9D9DCDEAKDCDFD9DSCFA */
-print $inverted->encode("Hello world!"); /* K2N304043451B4346404M361 */
+print $heptavintimal->encode("Hello world!"); /* K2N304043451B4346404M361 */
 ```
 
 ## Static Proxy (not implemented)
