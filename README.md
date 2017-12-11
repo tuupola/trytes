@@ -40,7 +40,7 @@ print $default->encode("Hello world!"); /* RBTC9D9DCDEAKDCDFD9DSCFA */
 print $heptavintimal->encode("Hello world!"); /* K2N304043451B4346404M361 */
 ```
 
-## Static Proxy (not implemented)
+## Static Proxy
 
 If you prefer to use static syntax use the provided static proxy.
 

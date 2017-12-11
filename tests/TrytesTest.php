@@ -30,19 +30,28 @@ class TrytesTest extends TestCase
     public function testShouldEncodeAndDecodeZ()
     {
         $data = "ZZ";
+
         $encoded = (new Trytes)->encode($data);
         $decoded = (new Trytes)->decode($encoded);
-
         $this->assertEquals($encoded, "ICIC");
         $this->assertEquals($decoded, $data);
+
+        $encoded2 = TrytesProxy::encode($data);
+        $decoded2 = TrytesProxy::decode($encoded2);
+        $this->assertEquals($encoded2, "ICIC");
+        $this->assertEquals($decoded2, $data);
     }
 
     public function testShouldEncodeAndDecodeRandomBytes()
     {
         $data = random_bytes(81);
+
         $encoded = (new Trytes)->encode($data);
         $decoded = (new Trytes)->decode($encoded);
-
         $this->assertEquals($decoded, $data);
+
+        $encoded2 = TrytesProxy::encode($data);
+        $decoded2 = TrytesProxy::decode($encoded2);
+        $this->assertEquals($decoded2, $data);
     }
 }
