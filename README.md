@@ -1,6 +1,6 @@
 # Trytes
 
-This library implements Trytes encoding. It can decode both integers any any arbitrary data.
+This library implements Trytes encoding as described by [IOTA](https://learn.iota.org/faq/trytes-and-trits) project. Trytes are equivalent of bytes but in [ternary](http://homepage.divms.uiowa.edu/~jones/ternary/numbers.shtml) number system.
 
 [![Latest Version](https://img.shields.io/packagist/v/tuupola/trytes.svg?style=flat-square)](https://packagist.org/packages/tuupola/trytes)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
