@@ -42,6 +42,23 @@ class TrytesTest extends TestCase
         $this->assertEquals($decoded2, $data);
     }
 
+    /*  https://github.com/iotaledger/iota.lib.py/blob/master/docs/types.rst* */
+
+    public function testShouldEncodeAndDecodeHelloIota()
+    {
+        $data = "Hello, IOTA!";
+
+        $encoded = (new Trytes)->encode($data);
+        $decoded = (new Trytes)->decode($encoded);
+        $this->assertEquals($encoded, "RBTC9D9DCDQAEASBYBCCKBFA");
+        $this->assertEquals($decoded, $data);
+
+        $encoded2 = TrytesProxy::encode($data);
+        $decoded2 = TrytesProxy::decode($encoded2);
+        $this->assertEquals($encoded2, "RBTC9D9DCDQAEASBYBCCKBFA");
+        $this->assertEquals($decoded2, $data);
+    }
+
     public function testShouldEncodeAndDecodeRandomBytes()
     {
         $data = random_bytes(81);
