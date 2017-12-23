@@ -8,9 +8,10 @@
  * Licensed under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
  *
- * Project home:
+ * See also:
  *   https://github.com/tuupola/trytes
  *   http://homepage.divms.uiowa.edu/~jones/ternary/numbers.shtml
+ *   https://iota.readme.io/docs/a-note-on-trinary
  */
 
 namespace Tuupola;
