@@ -58,6 +58,10 @@ class Trytes
 
     public function decode($data)
     {
+
+        if (strlen($data) % 2) {
+            throw new \InvalidArgumentException("Input length must be even.");
+        }
         $data = array_chunk(str_split($data), 2);
 
         /* Convert two character pairs to array of decimals. */

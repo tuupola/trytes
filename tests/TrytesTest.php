@@ -73,6 +73,14 @@ class TrytesTest extends TestCase
         $this->assertEquals($decoded2, $data);
     }
 
+    public function testShouldThrowWhenNotEven()
+    {
+        /* ZZ decodes to 728, there is no such ascii character. */
+        $this->setExpectedException("InvalidArgumentException");
+        $data = "ICI";
+        $decoded = (new Trytes)->decode($data);
+    }
+
     public function testShouldThrowWhenInvalidCharacters()
     {
         $this->setExpectedException("InvalidArgumentException");
