@@ -8,9 +8,10 @@
  * Licensed under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
  *
- * Project home:
+ * See also:
  *   https://github.com/tuupola/trytes
- *
+ *   http://homepage.divms.uiowa.edu/~jones/ternary/numbers.shtml
+ *   https://iota.readme.io/docs/a-note-on-trinary
  */
 
 namespace Tuupola\Trytes;
@@ -70,5 +71,12 @@ class TrytesTest extends TestCase
         $encoded2 = TrytesProxy::encode($data);
         $decoded2 = TrytesProxy::decode($encoded2);
         $this->assertEquals($decoded2, $data);
+    }
+
+    public function testShouldThrowInvalidArgumentException()
+    {
+        $this->setExpectedException("InvalidArgumentException");
+        $data = "012345";
+        $encoded = (new Trytes)->decode($data);
     }
 }

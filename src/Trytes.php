@@ -64,6 +64,11 @@ class Trytes
         $decimals = array_map(function ($input) {
             $first = strpos($this->options["characters"], $input[0]);
             $second = strpos($this->options["characters"], $input[1]);
+
+            if ((false === $first) || (false === $second)) {
+                throw new \InvalidArgumentException("Input contains invalid characters.");
+            }
+
             return $first + $second * 27;
         }, $data);
 
