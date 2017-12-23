@@ -65,8 +65,15 @@ class Trytes
             $first = strpos($this->options["characters"], $input[0]);
             $second = strpos($this->options["characters"], $input[1]);
 
+            /* Character(s) not included in the character set. */
             if ((false === $first) || (false === $second)) {
                 throw new \InvalidArgumentException("Input contains invalid characters.");
+            }
+
+            /* Tryte pair which decodes into non ASCII value. */
+            $integer = $first + $second * 27;
+            if ($integer > 255) {
+                throw new \InvalidArgumentException("Input is not an encoded bytearray.");
             }
 
             return $first + $second * 27;
